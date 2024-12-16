@@ -40,8 +40,7 @@ def register():
             flash('A user with the same name already exists. Please choose a different name.', 'danger')
             return redirect(url_for('register'))
 
-        new_user = User(username=username)
-        new_user.set_password(password)
+        new_user = User(username=username, password=password)
         db.session.add(new_user)
         db.session.commit()
         flash('You have successfully registered! You can now log in.', 'success')
