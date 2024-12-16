@@ -53,8 +53,8 @@ class TestApp(unittest.TestCase):
         tasks = driver.find_elements(By.TAG_NAME, "li")
         self.assertNotIn("Test task\nDelete", [task.text for task in tasks])
 
-        def tearDown(self):
-            self.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
