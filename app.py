@@ -37,14 +37,14 @@ def register():
         
         existing_user = User.query.filter_by(username=username).first()
         if existing_user:
-            flash('Пользователь с таким именем уже существует. Пожалуйста, выберите другое имя.', 'danger')
+            flash('A user with the same name already exists. Please choose a different name.', 'danger')
             return redirect(url_for('register'))
 
         new_user = User(username=username)
         new_user.set_password(password)
         db.session.add(new_user)
         db.session.commit()
-        flash('Вы успешно зарегистрировались! Теперь вы можете войти.', 'success')
+        flash('You have successfully registered! You can now log in.', 'success')
         return redirect(url_for('login'))
     
     return render_template('register.html')
